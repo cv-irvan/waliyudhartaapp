@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Wali Yudharta',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primaryColor: Color(0xffB22222),
       ),
       home: Dasboard(),
     );

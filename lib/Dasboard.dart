@@ -10,7 +10,7 @@ class _DasboardState extends State<Dasboard> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red,
+          backgroundColor: Color(0xffB22222),
           elevation: 0,
         ),
         drawer: Drawer(
@@ -41,7 +41,7 @@ class _DasboardState extends State<Dasboard> {
                 child: Material(
                   elevation: 10.0,
                   child: Container(
-                    color: Colors.red,
+                    color: Color(0xffB22222),
                     child: Center(
                       child:  Column(
                           mainAxisAlignment: MainAxisAlignment.center,
