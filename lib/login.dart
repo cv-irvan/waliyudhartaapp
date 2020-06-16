@@ -11,7 +11,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('img/Splashscreen.png'),fit: BoxFit.cover)
+          image: DecorationImage(image: AssetImage('img/login.png'),fit: BoxFit.cover)
         ),
       )
     );
