@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:wali_yudharta/Dasboard.dart';
 import 'dart:async';
 
-import 'package:wali_yudharta/login.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -15,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xffB22222),
       ),
-      home: Login(),
+      home: SplashScreen(),
     );
   }
 }
