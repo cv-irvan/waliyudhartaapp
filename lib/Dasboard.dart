@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wali_yudharta/Soon.dart';
 
 class Dasboard extends StatefulWidget {
   @override
@@ -85,10 +86,10 @@ class _DasboardState extends State<Dasboard> {
                 child: GridView.count(
                   crossAxisCount: 2,
                   children: <Widget>[
-                    MenuUtama(Icons.assignment, 'Lihat Nilai', () => {}),
-                    MenuUtama(Icons.credit_card, 'Lihat Pembayaran', () => {}),
-                    MenuUtama(Icons.event, 'Lihat Jadwal', () => {}),
-                    MenuUtama(Icons.exit_to_app, 'Log Out', () => {}),
+                    MenuUtama(Icons.assignment, 'Lihat Nilai', () => Soon()),
+                    MenuUtama(Icons.credit_card, 'Lihat Pembayaran', () => Soon()),
+                    MenuUtama(Icons.event, 'Lihat Jadwal', () => Soon()),
+                    MenuUtama(Icons.exit_to_app, 'Log Out', () => Soon()),
                   ],
                 ),
               ),
