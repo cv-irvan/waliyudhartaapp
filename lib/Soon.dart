@@ -11,22 +11,28 @@ class _SoonState extends State<Soon> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(
             child: Container(
               child: Lottie.asset(
                 'img/soon.json',
-                width: 300,
-                height: 300,
+                width: 350,
+                height: 350,
                 fit: BoxFit.fill,
               ),
             ),
           ),
-          Row(
-            children: <Widget>[
-              Text('Coming', style: TextStyle(fontSize: 30, color: Colors.black)),
-              Text('Soon', style: TextStyle(fontSize: 30, color: Colors.red)),
-            ],
+          Center(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Coming', style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.w700)),
+                Text('Soon', style: TextStyle(fontSize: 30, color: Colors.red, fontWeight: FontWeight.w800)),
+              ],
+            ),
           ),
         ],
       ),
