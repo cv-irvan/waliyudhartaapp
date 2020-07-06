@@ -27,11 +27,11 @@ class _DasboardState extends State<Dasboard> {
                 ),
                 accountEmail: Text('201669040001'),
               ),
-              ListMenu(Icons.home, 'Dasboard', () => {}),
-              ListMenu(Icons.assignment, 'Lihat Nilai', () => {}),
-              ListMenu(Icons.credit_card, 'Lihat Pembayaran', () => {}),
-              ListMenu(Icons.event, 'Lihat Jadwal', () => {}),
-              ListMenu(Icons.exit_to_app, 'Log Out', () => {}),
+              ListMenu(Icons.home, 'Dasboard', () => Dasboard()),
+              ListMenu(Icons.assignment, 'Lihat Nilai', () => Soon()),
+              ListMenu(Icons.credit_card, 'Lihat Pembayaran', () => Soon()),
+              ListMenu(Icons.event, 'Lihat Jadwal', () => Soon()),
+              ListMenu(Icons.exit_to_app, 'Log Out', () => Soon()),
             ],
           ),
         ),
@@ -95,7 +95,8 @@ class _DasboardState extends State<Dasboard> {
               ),
             )
           ],
-        ));
+        )
+      );
   }
 }
 
