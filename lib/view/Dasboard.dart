@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wali_yudharta/Soon.dart';
+import 'package:wali_yudharta/view/Soon.dart';
 
 class Dasboard extends StatefulWidget {
   @override

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:wali_yudharta/Dasboard.dart';
+import 'package:wali_yudharta/view/Dasboard.dart';
 import 'dart:async';
+
+import 'package:wali_yudharta/view/Welcome.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xffB22222),
       ),
-      home: SplashScreen(),
+      home: Home(),
     );
   }
 }
