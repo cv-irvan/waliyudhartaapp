@@ -1,23 +1,31 @@
+// To parse this JSON data, do
+//
+//     final getMahasiswaModel = getMahasiswaModelFromJson(jsonString);
+
 import 'dart:convert';
 
-Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
+import 'package:rxdart/rxdart.dart';
+import 'package:wali_yudharta/service/Repository.dart';
+import 'package:wali_yudharta/service/api.dart';
 
-String welcomeToJson(Welcome data) => json.encode(data.toJson());
+GetMahasiswaModel getMahasiswaModelFromJson(String str) => GetMahasiswaModel.fromJson(json.decode(str));
 
-class Welcome {
-    Welcome({
+String getMahasiswaModelToJson(GetMahasiswaModel data) => json.encode(data.toJson());
+
+class GetMahasiswaModel {
+    GetMahasiswaModel({
         this.mhsNim,
         this.items,
         this.access,
     });
 
     String mhsNim;
-    List<WelcomeItem> items;
+    List<GetMahasiswaModelItem> items;
     List<Access> access;
 
-    factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+    factory GetMahasiswaModel.fromJson(Map<String, dynamic> json) => GetMahasiswaModel(
         mhsNim: json["mhs_nim"],
-        items: List<WelcomeItem>.from(json["items"].map((x) => WelcomeItem.fromJson(x))),
+        items: List<GetMahasiswaModelItem>.from(json["items"].map((x) => GetMahasiswaModelItem.fromJson(x))),
         access: List<Access>.from(json["access"].map((x) => Access.fromJson(x))),
     );
 
@@ -68,8 +76,8 @@ final jenisAksesValues = EnumValues({
     "uts": JenisAkses.UTS
 });
 
-class WelcomeItem {
-    WelcomeItem({
+class GetMahasiswaModelItem {
+    GetMahasiswaModelItem({
         this.mhsNim,
         this.semester,
         this.pembimbingAkademik,
@@ -107,7 +115,7 @@ class WelcomeItem {
     String dosenPa;
     List<ItemItem> items;
 
-    factory WelcomeItem.fromJson(Map<String, dynamic> json) => WelcomeItem(
+    factory GetMahasiswaModelItem.fromJson(Map<String, dynamic> json) => GetMahasiswaModelItem(
         mhsNim: json["mhs_nim"],
         semester: json["semester"],
         pembimbingAkademik: json["pembimbing_akademik"],
@@ -285,3 +293,21 @@ class EnumValues<T> {
         return reverseMap;
     }
 }
+
+class NimObservabel{
+  final api = Repository();
+  final _mhsNim = PublishSubject<GetMahasiswaModel>();
+
+  Observable<GetMahasiswaModel> get responNim => _mhsNim.stream;
+
+  getNim(String nim)async{
+    GetMahasiswaModel getMahasiswaModel = api.getNim(nim);
+    _mhsNim.sink.add(getMahasiswaModel);
+  }
+
+  dispose(){
+    _mhsNim.close();
+  }
+}
+
+final nimobservabel = NimObservabel();

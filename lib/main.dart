@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xffB22222),
       ),
-      home: Home(),
+      home: Login(),
     );
   }
 }
@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
       (){
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Dasboard(),
+          MaterialPageRoute(builder: (context) => Login(),
           ),
         );
       },
