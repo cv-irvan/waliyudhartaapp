@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:wali_yudharta/bloc/mhsBloc.dart';
+import 'package:wali_yudharta/model/getMhsModel.dart';
 import 'package:wali_yudharta/view/Soon.dart';
+import 'package:wali_yudharta/view/lihatnilai.dart';
 
 class Dasboard extends StatefulWidget {
+  Dasboard({this.data});
+  GetMhsModel data;
   @override
   _DasboardState createState() => _DasboardState();
 }
@@ -22,16 +27,24 @@ class _DasboardState extends State<Dasboard> {
                   backgroundImage: AssetImage('img/irvan.png'),
                 ),
                 accountName: Text(
-                  'Irvan',
+                  widget.data.items[0].namaLengkap,
                   style: TextStyle(fontSize: 20.0),
                 ),
-                accountEmail: Text('201669040001'),
+                accountEmail: Text(widget.data.mhsNim),
               ),
-              ListMenu(Icons.home, 'Dasboard', () => Dasboard()),
-              ListMenu(Icons.assignment, 'Lihat Nilai', () => Soon()),
-              ListMenu(Icons.credit_card, 'Lihat Pembayaran', () => Soon()),
-              ListMenu(Icons.event, 'Lihat Jadwal', () => Soon()),
-              ListMenu(Icons.exit_to_app, 'Log Out', () => Soon()),
+              ListMenu(Icons.home, 'Dasboard'),
+              InkWell(
+                onTap: () {
+                  print("object");
+                },
+                child: ListMenu(
+                  Icons.assignment,
+                  'Lihat Nilai',
+                ),
+              ),
+              ListMenu(Icons.credit_card, 'Lihat Pembayaran'),
+              ListMenu(Icons.event, 'Lihat Jadwal'),
+              ListMenu(Icons.exit_to_app, 'Log Out'),
             ],
           ),
         ),
@@ -59,13 +72,13 @@ class _DasboardState extends State<Dasboard> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 10),
-                          child: Text('IRVAN',
+                          child: Text(widget.data.items[0].namaLengkap,
                               style:
                                   TextStyle(fontSize: 30, color: Colors.white)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(3.0),
-                          child: Text('201669040001',
+                          child: Text(widget.data.mhsNim,
                               style:
                                   TextStyle(fontSize: 20, color: Colors.white)),
                         ),
@@ -86,61 +99,77 @@ class _DasboardState extends State<Dasboard> {
                 child: GridView.count(
                   crossAxisCount: 2,
                   children: <Widget>[
-                    MenuUtama(Icons.assignment, 'Lihat Nilai', () => Soon()),
-                    MenuUtama(Icons.credit_card, 'Lihat Pembayaran', () => Soon()),
-                    MenuUtama(Icons.event, 'Lihat Jadwal', () => Soon()),
-                    MenuUtama(Icons.exit_to_app, 'Log Out', () => Soon()),
+                    MenuUtama(Icons.assignment, 'Lihat Nilai', () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                LihatNilai(data: widget.data)),
+                      );
+                    }),
+                    MenuUtama(Icons.credit_card, 'Lihat Pembayaran', () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Soon()),
+                      );
+                    }),
+                    MenuUtama(Icons.event, 'Lihat Jadwal', () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Soon()),
+                      );
+                    }),
+                    MenuUtama(Icons.exit_to_app, 'Log Out', () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Soon()),
+                      );
+                    }),
                   ],
                 ),
               ),
             )
           ],
-        )
-      );
+        ));
   }
 }
 
 class ListMenu extends StatelessWidget {
   final IconData icon;
   final String text;
-  final Function onTap;
-  ListMenu(this.icon, this.text, this.onTap);
+  ListMenu(this.icon, this.text);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      splashColor: Colors.redAccent,
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.only(left: 8.0, right: 8.0),
-        decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: Colors.grey)),
-        ),
-        height: 65,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Icon(
-                  icon,
-                  color: Color(0xff4D4D4D),
+    return Container(
+      padding: EdgeInsets.only(left: 8.0, right: 8.0),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: Colors.grey)),
+      ),
+      height: 65,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Icon(
+                icon,
+                color: Color(0xff4D4D4D),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  text,
+                  style: TextStyle(fontSize: 17.0, color: Color(0xff4D4D4D)),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    text,
-                    style: TextStyle(fontSize: 17.0, color: Color(0xff4D4D4D)),
-                  ),
-                )
-              ],
-            ),
-            Icon(
-              Icons.arrow_right,
-              color: Color(0xff4D4D4D),
-            )
-          ],
-        ),
+              )
+            ],
+          ),
+          Icon(
+            Icons.arrow_right,
+            color: Color(0xff4D4D4D),
+          )
+        ],
       ),
     );
   }
