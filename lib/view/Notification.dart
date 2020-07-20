@@ -29,7 +29,10 @@ class _PemberitahuanState extends State<Pemberitahuan> {
     OneSignal.shared
         .setNotificationOpenedHandler((OSNotificationOpenedResult result) {
       // will be called whenever a notification is opened/button pressed.
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Pemberitahuan()),);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Pemberitahuan()),
+      );
     });
   }
 
@@ -42,12 +45,12 @@ class _PemberitahuanState extends State<Pemberitahuan> {
       body: Center(
         child: Column(
           children: [
-            (url != "") ? Container(
-              height: 274,
-              width: 700,
-              decoration: BoxDecoration(
-                  image: DecorationImage(image: NetworkImage(url))),
-            ) : SizedBox(),
+            // (url != "") ? Container(
+            //   height: 274,
+            //   width: 700,
+            //   decoration: BoxDecoration(
+            //       image: DecorationImage(image: NetworkImage(url))),
+            // ) : SizedBox(),
             Text(title),
             SizedBox(
               height: 20,

@@ -13,7 +13,11 @@ class _LihatNilaiState extends State<LihatNilai> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text(widget.data.items[0].items[0].nilaiIndex)),
-    );
+        body: //Center(child: Text(widget.data.items[0].items[0].nilaiIndex)),
+            ListView.builder(
+                itemCount: ????.length,
+                itemBuilder: (context, index) {
+                  Center(child: Text(widget.data.items[index].semester));
+                }));
   }
 }

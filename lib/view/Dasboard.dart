@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:wali_yudharta/bloc/mhsBloc.dart';
 import 'package:wali_yudharta/model/getMhsModel.dart';
 import 'package:wali_yudharta/view/Soon.dart';
+import 'package:wali_yudharta/view/Welcome.dart';
 import 'package:wali_yudharta/view/lihatnilai.dart';
+import 'package:wali_yudharta/view/Notification.dart';
 
 class Dasboard extends StatefulWidget {
   Dasboard({this.data});
@@ -32,19 +34,38 @@ class _DasboardState extends State<Dasboard> {
                 ),
                 accountEmail: Text(widget.data.mhsNim),
               ),
-              ListMenu(Icons.home, 'Dasboard'),
-              InkWell(
-                onTap: () {
-                  print("object");
-                },
-                child: ListMenu(
-                  Icons.assignment,
-                  'Lihat Nilai',
-                ),
-              ),
-              ListMenu(Icons.credit_card, 'Lihat Pembayaran'),
-              ListMenu(Icons.event, 'Lihat Jadwal'),
-              ListMenu(Icons.exit_to_app, 'Log Out'),
+              ListMenu(Icons.home, 'Dasboard', () {}),
+              ListMenu(Icons.notifications, 'Notifications', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Pemberitahuan()),
+                );
+              }),
+              ListMenu(Icons.assignment, 'Lihat Nilai', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => LihatNilai(data: widget.data)),
+                );
+              }),
+              ListMenu(Icons.credit_card, 'Lihat Pembayaran', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Soon()),
+                );
+              }),
+              ListMenu(Icons.event, 'Lihat Jadwal', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Soon()),
+                );
+              }),
+              ListMenu(Icons.exit_to_app, 'Log Out', () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Login()),
+                );
+              }),
             ],
           ),
         ),
@@ -82,7 +103,7 @@ class _DasboardState extends State<Dasboard> {
                               style:
                                   TextStyle(fontSize: 20, color: Colors.white)),
                         ),
-                        Text('Informatika',
+                        Text(widget.data.items[0].jurusan,
                             style:
                                 TextStyle(fontSize: 20, color: Colors.white)),
                       ],
@@ -122,7 +143,7 @@ class _DasboardState extends State<Dasboard> {
                     MenuUtama(Icons.exit_to_app, 'Log Out', () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Soon()),
+                        MaterialPageRoute(builder: (context) => Login()),
                       );
                     }),
                   ],
@@ -137,39 +158,47 @@ class _DasboardState extends State<Dasboard> {
 class ListMenu extends StatelessWidget {
   final IconData icon;
   final String text;
-  ListMenu(this.icon, this.text);
+  final Function onTap;
+  ListMenu(this.icon, this.text, this.onTap);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: 8.0, right: 8.0),
-      decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(color: Colors.grey)),
-      ),
-      height: 65,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Icon(
-                icon,
-                color: Color(0xff4D4D4D),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  text,
-                  style: TextStyle(fontSize: 17.0, color: Color(0xff4D4D4D)),
+    return InkWell(
+      splashColor: Colors.redAccent,
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.only(left: 8.0, right: 8.0),
+        decoration: BoxDecoration(
+          border: Border(bottom: BorderSide(color: Colors.grey)),
+        ),
+        height: 65,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Icon(
+                  icon,
+                  color: Color(0xff4D4D4D),
                 ),
-              )
-            ],
-          ),
-          Icon(
-            Icons.arrow_right,
-            color: Color(0xff4D4D4D),
-          )
-        ],
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    text,
+                    style: TextStyle(
+                      fontSize: 17.0,
+                      color: Color(0xff4D4D4D),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Icon(
+              Icons.arrow_right,
+              color: Color(0xff4D4D4D),
+            )
+          ],
+        ),
       ),
     );
   }
