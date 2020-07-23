@@ -30,7 +30,7 @@ class _DasboardState extends State<Dasboard> {
                 ),
                 accountName: Text(
                   widget.data.items[0].namaLengkap,
-                  style: TextStyle(fontSize: 20.0),
+                  style: TextStyle(fontSize: 15.0),
                 ),
                 accountEmail: Text(widget.data.mhsNim),
               ),
@@ -95,17 +95,17 @@ class _DasboardState extends State<Dasboard> {
                           padding: const EdgeInsets.only(top: 10),
                           child: Text(widget.data.items[0].namaLengkap,
                               style:
-                                  TextStyle(fontSize: 30, color: Colors.white)),
+                                  TextStyle(fontSize: 20, color: Colors.white)),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(3.0),
                           child: Text(widget.data.mhsNim,
                               style:
-                                  TextStyle(fontSize: 20, color: Colors.white)),
+                                  TextStyle(fontSize: 15, color: Colors.white)),
                         ),
                         Text(widget.data.items[0].jurusan,
                             style:
-                                TextStyle(fontSize: 20, color: Colors.white)),
+                                TextStyle(fontSize: 15, color: Colors.white)),
                       ],
                     ),
                   ),
@@ -229,14 +229,14 @@ class MenuUtama extends StatelessWidget {
               children: <Widget>[
                 Icon(
                   icon,
-                  size: 75,
+                  size: 65,
                   color: Color(0xffB22222),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
                   child: Text(
                     text,
-                    style: TextStyle(fontSize: 17.0, color: Color(0xff4D4D4D)),
+                    style: TextStyle(fontSize: 15.0, color: Color(0xff4D4D4D)),
                   ),
                 )
               ],

@@ -10,9 +10,12 @@ class _SoonState extends State<Soon> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(""),
+      ),
       body: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Center(
             child: Container(
@@ -29,8 +32,16 @@ class _SoonState extends State<Soon> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text('Coming', style: TextStyle(fontSize: 30, color: Colors.black, fontWeight: FontWeight.w700)),
-                Text('Soon', style: TextStyle(fontSize: 30, color: Colors.red, fontWeight: FontWeight.w800)),
+                Text('Coming',
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w700)),
+                Text('Soon',
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.red,
+                        fontWeight: FontWeight.w800)),
               ],
             ),
           ),
