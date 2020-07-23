@@ -19,7 +19,28 @@ class _LihatNilaiState extends State<LihatNilai> {
       body: ListView.builder(
         itemCount: widget.data.items.length,
         itemBuilder: (BuildContext context, int i) {
-          Text(widget.data.items[i].semester);
+          return Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Material(
+              color: Colors.white,
+              elevation: 10.0,
+              borderRadius: BorderRadius.circular(18.0),
+              shadowColor: Colors.grey,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Text("Semester : "),
+                        Text(widget.data.items[i].semester),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
         },
       ),
     );
