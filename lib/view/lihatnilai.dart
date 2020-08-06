@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wali_yudharta/bloc/mhsBloc.dart';
 import 'package:wali_yudharta/model/getMhsModel.dart';
 
 class LihatNilai extends StatefulWidget {
@@ -21,23 +22,47 @@ class _LihatNilaiState extends State<LihatNilai> {
         itemBuilder: (BuildContext context, int i) {
           return Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Material(
-              color: Colors.white,
+            child: Card(
+              color: Color(0xffB22222),
               elevation: 10.0,
-              borderRadius: BorderRadius.circular(18.0),
               shadowColor: Colors.grey,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Text("Semester : "),
-                        Text(widget.data.items[i].semester),
-                      ],
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    title: Text('Semester : ' + widget.data.items[i].semester,
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold)),
+                    subtitle: Text("IP Semester : " + widget.data.items[i].ips,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.normal)),
+                    // trailing: Text(widget.data.items[i].semester,
+                    //     style: TextStyle(
+                    //         color: Colors.white, fontWeight: FontWeight.bold)),
+                  ),
+                  Container(
+                    height: 700,
+                    child: ListView.builder(
+                      physics: ScrollPhysics(),
+                      itemCount: widget.data.items[i].items.length,
+                      itemBuilder: (BuildContext context, int a) {
+                        return Card(
+                          child: ListTile(
+                            title: Text(widget.data.items[i].items[a].mkNama),
+                            subtitle: Text("Kode MK : " +
+                                widget.data.items[i].items[a].mkKode),
+                            trailing: Text(
+                                widget.data.items[i].items[a].nilaiAngka +
+                                    "  " +
+                                    "(" +
+                                    widget.data.items[i].items[a].nilaiHuruf +
+                                    ")"),
+                          ),
+                        );
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           );

@@ -34,6 +34,9 @@ class _LoginState extends State<Login> {
                 padding: const EdgeInsets.only(
                     top: 50, bottom: 8.0, left: 24.0, right: 24.0),
                 child: TextField(
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(

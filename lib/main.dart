@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:wali_yudharta/view/Dasboard.dart';
 import 'dart:async';
 
 import 'package:wali_yudharta/view/Welcome.dart';
-import 'package:wali_yudharta/view/Notification.dart';
-import 'package:wali_yudharta/view/Dasboard.dart';
+import 'package:wali_yudharta/view/Welcome.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,6 +29,10 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xffB22222),
       ),
       home: SplashScreen(),
+      routes: <String, WidgetBuilder>{
+        '/welcome': (BuildContext context) => new Login(),
+        '/dasboard': (BuildContext context) => new Dasboard()
+      },
     );
   }
 }
@@ -45,12 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(
       Duration(seconds: 3),
       () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Login(),
-          ),
-        );
+        Navigator.pushReplacementNamed(context, '/welcome');
       },
     );
   }

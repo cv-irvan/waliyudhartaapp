@@ -61,10 +61,7 @@ class _DasboardState extends State<Dasboard> {
                 );
               }),
               ListMenu(Icons.exit_to_app, 'Log Out', () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Login()),
-                );
+                Navigator.pushReplacementNamed(context, '/welcome');
               }),
             ],
           ),
@@ -141,10 +138,7 @@ class _DasboardState extends State<Dasboard> {
                       );
                     }),
                     MenuUtama(Icons.exit_to_app, 'Log Out', () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Login()),
-                      );
+                      Navigator.pushReplacementNamed(context, '/welcome');
                     }),
                   ],
                 ),
