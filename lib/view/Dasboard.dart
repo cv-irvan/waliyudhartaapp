@@ -3,6 +3,8 @@ import 'package:wali_yudharta/bloc/mhsBloc.dart';
 import 'package:wali_yudharta/model/getMhsModel.dart';
 import 'package:wali_yudharta/view/Soon.dart';
 import 'package:wali_yudharta/view/Welcome.dart';
+import 'package:wali_yudharta/view/lihatPembayaran.dart';
+import 'package:wali_yudharta/view/lihatjadwal.dart';
 import 'package:wali_yudharta/view/lihatnilai.dart';
 import 'package:wali_yudharta/view/Notification.dart';
 
@@ -51,13 +53,13 @@ class _DasboardState extends State<Dasboard> {
               ListMenu(Icons.credit_card, 'Lihat Pembayaran', () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Soon()),
+                  MaterialPageRoute(builder: (context) => LihatPembayaran()),
                 );
               }),
               ListMenu(Icons.event, 'Lihat Jadwal', () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Soon()),
+                  MaterialPageRoute(builder: (context) => LihatJadwal()),
                 );
               }),
               ListMenu(Icons.exit_to_app, 'Log Out', () {
@@ -128,13 +130,14 @@ class _DasboardState extends State<Dasboard> {
                     MenuUtama(Icons.credit_card, 'Lihat Pembayaran', () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Soon()),
+                        MaterialPageRoute(
+                            builder: (context) => LihatPembayaran()),
                       );
                     }),
                     MenuUtama(Icons.event, 'Lihat Jadwal', () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Soon()),
+                        MaterialPageRoute(builder: (context) => LihatJadwal()),
                       );
                     }),
                     MenuUtama(Icons.exit_to_app, 'Log Out', () {
