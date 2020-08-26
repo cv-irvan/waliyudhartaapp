@@ -36,9 +36,6 @@ class _LihatNilaiState extends State<LihatNilai> {
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.normal)),
-                    // trailing: Text(widget.data.items[i].semester,
-                    //     style: TextStyle(
-                    //         color: Colors.white, fontWeight: FontWeight.bold)),
                   ),
                   Container(
                     height: 700,
